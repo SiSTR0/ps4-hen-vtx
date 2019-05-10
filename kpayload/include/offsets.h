@@ -82,6 +82,7 @@
 #define sceKernelIsGenuineCEX_patch2    0x79980B
 #define sceKernelIsGenuineCEX_patch3    0x7E5A13
 #define sceKernelIsGenuineCEX_patch4    0x94715B
+#define Patch_sceBgftNotifyGameWillStart_Error    0x3EA9A2
 
 // call nidf_libSceDipsw
 #define nidf_libSceDipsw_patch1         0x16D087
