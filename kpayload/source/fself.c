@@ -318,7 +318,7 @@ PAYLOAD_CODE int my_sceSblAuthMgrSmLoadSelfBlock__sceSblServiceMailbox(unsigned 
 		cur_data_cpu_va = sceSblDriverGpuVaToCpuVa(cur_data_gpu_va, NULL);
 		cur_data2_cpu_va = cur_data2_gpu_va ? sceSblDriverGpuVaToCpuVa(cur_data2_gpu_va, NULL) : 0;
 
-		if (segment_data_cpu_va && cur_data_cpu_va) {
+		if (segment_data_cpu_va && cur_data_cpu_va && cur_data2_cpu_va) {
 			if (cur_data2_gpu_va && cur_data2_gpu_va != cur_data_gpu_va && data_offset > 0) {
 				/* data spans two consecutive memory's pages, so we need to copy twice */
 				size1 = PAGE_SIZE - data_offset;
