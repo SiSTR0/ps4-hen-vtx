@@ -244,6 +244,19 @@ PAYLOAD_CODE int shellcore_fpkg_patch(void)
         goto error;
     }
 
+	
+	// enable savedata mounting
+	ret = proc_write_mem(ssc, (void *)(text_seg_base + verify_keystone_patch), 4, "\x48\x31\xC0\xC3", &n);//0x48, 0x31, 0xC0, 0xC3
+	if (ret)
+	{
+		goto error;
+	}
+
+	 ret = proc_write_mem(ssc, (void *)(text_seg_base + save_mount_permision), 3, "\x31\xC0\xC3", &n);//0x48, 0x31, 0xC0, 0xC3
+	 if (ret)
+	 {
+		 goto error;
+	 }
 error:
 	if (entries)
 		dealloc(entries);

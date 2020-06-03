@@ -1,4 +1,4 @@
-# PS4HEN v2.1.3
+# PS4HEN v2.1.4
 
 ## Features
 - Homebrew Enabler
@@ -16,6 +16,7 @@
 - UART Enabler
 - Never Disable Screenshot
 - Remote Play Enabler
+- Save Data Mounting
 
 ## Contributors
 Massive credits to the following:

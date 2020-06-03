@@ -105,6 +105,33 @@
 
 // enable fpkg
 #define enable_fpkg_patch               0x3E0602
+
+// 'sce_sdmemory' patch
+#define sce_sdmemory_patch				0xD42843
+ 
+//verify keystone patch
+#define verify_keystone_patch			0x7E4DC0
+
+//transfer mount permission patch eg mount foreign saves with write permission
+#define save_mount_permision			0x68BA0
+
+//some other patch not sure 
+#define save_mount_patch				0x6A349
+
+//something something patch
+#define save_mount_something_patch		0x686AE
+
+//patch unk 
+#define save_mount_patch_unk			0x67FCA
+
+//save mount never jump
+#define save_mount_never_jump			0x67798
+
+//save data always jump
+#define save_mount_always_jump			0x679D5
+
+//psn save patch 
+#define save_psn_patch					0xC54F0
  
 // debug pkg free string
 #define fake_free_patch                 0xEA96A7
