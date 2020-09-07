@@ -244,6 +244,16 @@ PAYLOAD_CODE int shellcore_fpkg_patch(void)
         goto error;
     }
 
+  // allow any usb speed specification for external hdd
+  ret = proc_write_mem(ssc, (void *)(text_seg_base + ext_hdd_usb_spec_patch), 6, "\x90\x90\x90\x90\x90\x90", &n);
+  if (ret)
+    goto error;
+
+  // allow usb hub connection for external hdd
+  ret = proc_write_mem(ssc, (void *)(text_seg_base + ext_hdd_usb_hub_patch), 8, "\x31\xC0\x90\x90\x90\x90\x90\x90", &n);
+  if (ret)
+    goto error;
+
 error:
 	if (entries)
 		dealloc(entries);

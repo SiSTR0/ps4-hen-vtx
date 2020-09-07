@@ -121,4 +121,10 @@
 // disable screenshot block
 #define disable_screenshot_patch        0x0CB8C6
 
+// allow any usb speed specification for external hdd
+#define ext_hdd_usb_spec_patch          0x183526
+
+// allow usb hub connection for external hdd
+#define ext_hdd_usb_hub_patch           0x1A5E5F
+
 #endif
