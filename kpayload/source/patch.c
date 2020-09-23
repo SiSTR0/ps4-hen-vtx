@@ -351,6 +351,16 @@ PAYLOAD_CODE int remoteplay_patch() {
 
     int ret = 0;
 
+    uint32_t call_ofs_for__xor__eax_eax__3nop[] = {
+      // call sceVshAvcapSetInfo
+      sceVshAvcapSetInfo_patch1,
+      sceVshAvcapSetInfo_patch2,
+      sceVshAvcapSetInfo_patch3,
+      sceVshAvcapSetInfo_patch4,
+      sceVshAvcapSetInfo_patch5,
+      sceVshAvcapSetInfo_patch6,
+    };
+
     struct proc *srp = proc_find_by_name("SceRemotePlay");
 
     if (!srp) {
@@ -386,7 +396,14 @@ PAYLOAD_CODE int remoteplay_patch() {
         goto error;
     }
 
-    error:
+    // never block out screen for remote play
+    for (int i = 0; i < COUNT_OF(call_ofs_for__xor__eax_eax__3nop); i++) {
+      ret = proc_write_mem(srp, (void *)(executable_base + call_ofs_for__xor__eax_eax__3nop[i]), 5, "\x31\xC0\x90\x90\x90", &n);
+      if (ret)
+        goto error;
+    }
+
+error:
     if (entries) {
         dealloc(entries);
     }

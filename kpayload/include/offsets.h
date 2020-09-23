@@ -87,6 +87,14 @@
 #define SceRemotePlay_patch1                                        0x03C33F
 #define SceRemotePlay_patch2                                        0x03C35A
 
+// call sceVshAvcapSetInfo
+#define sceVshAvcapSetInfo_patch1       0x226A36
+#define sceVshAvcapSetInfo_patch2       0x226A75
+#define sceVshAvcapSetInfo_patch3       0x226AA5
+#define sceVshAvcapSetInfo_patch4       0x226B43
+#define sceVshAvcapSetInfo_patch5       0x226B7B
+#define sceVshAvcapSetInfo_patch6       0x226BEC
+
 // SceShellCore patches
 // call sceKernelIsGenuineCEX
 #define sceKernelIsGenuineCEX_patch1    0x16D05B
